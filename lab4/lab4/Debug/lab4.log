@@ -1,2 +1,3 @@
-﻿  Test.cpp
+﻿  TPolynom.cpp
+C:\Users\dench\source\repos\lab\mp2-lab4-polynom\lab4\lab4\TPolynom.cpp(75,46): warning C4244:  +=: преобразование "double" в "int", возможна потеря данных
   lab4.vcxproj -> C:\Users\dench\source\repos\lab\mp2-lab4-polynom\lab4\Debug\lab4.exe

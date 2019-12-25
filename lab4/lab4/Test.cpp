@@ -21,6 +21,9 @@ int main()
 		UserPolimom(pol2, amountOfMon2);
 		cout << "first polynom: " << pol << endl;
 		cout << "second polinom: " << pol2 << endl;
+		cout << "pol1 + pol2 = " << pol + pol2 << endl;
+		cout << "pol1 - pol2 = " << pol - pol2 << endl;
+		cout << "pol1 * pol2 = " << pol * pol2 << endl;
 		cout << "enter value: ";
 		int val;
 		cin >> val;
@@ -31,6 +34,7 @@ int main()
 		throw exception(str);
 	}
 }
+
 void UserPolimom(TPolynom& pol, int cost)
 {
 	for (int i = 0; i < cost; i++)

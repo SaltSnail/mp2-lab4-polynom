@@ -1,6 +1,7 @@
 #include "TPolynom.h"
+#include <cmath>
 
-TMonom::TMonom(int coeff, int power)
+TMonom::TMonom(double coeff, int power)
 {
 	if(power < 0 || power > 100)
 		throw exception();
@@ -10,7 +11,7 @@ TMonom::TMonom(int coeff, int power)
 	pNext = 0;
 }
 
-TMonom::TMonom(int coeff, int power, TMonom* pnext) // конструктор инициализации
+TMonom::TMonom(double coeff, int power, TMonom* pnext) // конструктор инициализации
 {
 	Coeff = coeff;
 	Power = power;
@@ -30,7 +31,7 @@ TPolynom::TPolynom()
 	ListLen = 0;
 }
 
-TPolynom::TPolynom(const TPolynom& tp)
+TPolynom::TPolynom(const TPolynom& tp): TPolynom()
 {
 	TMonom* tmp = tp.pHead;
 	while (tmp != 0)
@@ -178,9 +179,9 @@ void TPolynom::Insert(TMonom tm)
 
 }
 
-void TPolynom::Insert(double coeff, int power)
+void TPolynom::Insert(double Coeff, int Power)
 {
-	TMonom tm(coeff, power);
+	TMonom tm(Coeff, Power);
 	if (pHead == 0 || pHead->Power > tm.Power) {
 		InsFirst(tm);
 		return;
@@ -190,9 +191,11 @@ void TPolynom::Insert(double coeff, int power)
 	while (currPos->pNext != 0 && currPos->pNext->Power <= tm.Power && currPos->Power <= tm.Power) {
 		currPos = currPos->pNext;
 	}
-	if (currPos->Power == tm.Power) {
+	if (currPos->Power == tm.Power)
+	{
 		currPos->Coeff += tm.Coeff;
-		if (abs(currPos->Coeff) < 0.000001) {
+		if (abs(currPos->Coeff) < 0.000001)
+		{
 			DelList(*currPos);
 		}
 		return;
